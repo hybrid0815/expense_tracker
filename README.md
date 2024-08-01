@@ -6,10 +6,12 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/422b071e-868b-419b-b431-d122eeab3906" width="200"/>
-  <img src="https://github.com/user-attachments/assets/d776e529-5f8f-4050-a822-00ca545d31ef" width="200"/>
+  <img src="https://github.com/user-attachments/assets/422b071e-868b-419b-b431-d122eeab3906" width="400"/>
 </p>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d776e529-5f8f-4050-a822-00ca545d31ef" width="400"/>
+</p>
 
 ## Widget List
 - ListView.builder
