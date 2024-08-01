@@ -13,7 +13,7 @@ enum Category {
   work,
 }
 
-const categpryIcons = {
+const categoryIcons = {
   Category.food: Icons.lunch_dining,
   Category.travel: Icons.flight,
   Category.leisure: Icons.movie,
@@ -35,4 +35,27 @@ class Expense {
   }) : id = uuid.v4();
 
   String get formatedDate => dateFormater.format(date);
+}
+
+class ExpenseBucket {
+  const ExpenseBucket({
+    required this.category,
+    required this.expenses,
+  });
+
+  ExpenseBucket.forCategory(List<Expense> allExpenses, this.category)
+      : expenses = allExpenses
+            .where((expense) => expense.category == category)
+            .toList();
+
+  final Category category;
+  final List<Expense> expenses;
+
+  double get totalExpenses {
+    double total = 0.0;
+    for (var expense in expenses) {
+      total += expense.amount;
+    }
+    return total;
+  }
 }

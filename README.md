@@ -1,4 +1,4 @@
-# expence_tracker
+# expense_tracker
 
 A new Flutter project.
 
@@ -32,13 +32,13 @@ import 'package:uuid/uuid.dart';
 
 const uuid = Uuid();
 
-class Expence {
+class Expense {
   final String id;
   final String title;
   final double amount;
   final DateTime date;
 
-  Expence({
+  Expense({
     required this.title,
     required this.amount,
     required this.date,
