@@ -1,6 +1,15 @@
 # expense_tracker
 
-A new Flutter project.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/39015954-6751-4d95-b3b1-2e694a8eaa65" width="200"/>
+  <img src="https://github.com/user-attachments/assets/dc8a3764-44ef-44d6-b20d-455581e7f096" width="200"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/422b071e-868b-419b-b431-d122eeab3906" width="200"/>
+  <img src="https://github.com/user-attachments/assets/d776e529-5f8f-4050-a822-00ca545d31ef" width="200"/>
+</p>
+
 
 ## Widget List
 - ListView.builder
@@ -121,4 +130,71 @@ void _showDatePicker() async {
 
   print(selectedDate)
 }
+```
+
+# Responsive & Adaptive
+
+## Locking the Device Orientation
+```dart
+import 'package:flutter/services.dart';
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]).then((_) => runApp(const App()));
+}
+```
+
+## Get Device Size
+```dart
+@override
+  Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+    final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
+    ...
+
+    eturn Scaffold(
+      appBar: AppBar(
+        title: const Text("Expense Tracker"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: _openAddExpenseFOverlay,
+          ),
+        ],
+      ),
+      body: width < 600
+          ? Column(
+              children: [
+                Chart(expenses: _registeredExpenses),
+                Expanded(
+                  child: mainCOntent,
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(child: Chart(expenses: _registeredExpenses)),
+                Expanded(
+                  child: mainCOntent,
+                ),
+              ],
+            ),
+    );
+  }
+  ```
+
+  ## Wisget Size
+  각 위젯은 `preferences & parent widget` 두개의 제약을 가진다.
+  예를 들면 `Column` 위젯은 높이는 무한대 크기를 가지고 넓이는 부모 위젯의 크기를 가진다.
+  반면 `Scaffold` 위젯은 높이와 넓이 모두 디바이스 크기의 최대 값을 가진다.
+
+## LayoutBuilder
+스터디 필요
+
+## Adptive Widgets
+기기 또는 크롬, 윈도우, MacOS에 따라 위젯 스타일을 변경 할수 있다.
+```dart
+Platform.isIOS
 ```
